@@ -1,0 +1,202 @@
+<div class="mw-corpo">
+
+  {{!-- Colonna delle ZONE, alta quanto la finestra --}}
+  <aside class="mw-zone">
+    <img class="mw-logo" src="modules/magic-way/assets/logo-256.webp" alt="Magic Way">
+    <header class="mw-zone-testa">
+      <span><i class="fa-solid fa-layer-group"></i> {{localize "MAGICWAY.Zone.titolo"}}</span>
+      <span class="mw-zone-pulsanti">
+        <button type="button" class="mw-btn mw-icona mw-lucchetto {{#if zoneBloccate}}chiuso{{else}}aperto{{/if}}" data-action="bloccaZone" aria-pressed="{{#if zoneBloccate}}true{{else}}false{{/if}}"
+          data-tooltip="{{#if zoneBloccate}}{{localize "MAGICWAY.Zone.bloccate"}}{{else}}{{localize "MAGICWAY.Zone.sbloccate"}}{{/if}}"><i class="fa-solid {{#if zoneBloccate}}fa-lock{{else}}fa-lock-open{{/if}}"></i></button>
+        <button type="button" class="mw-btn mw-icona" data-action="nuovaZona" data-tooltip="{{localize "MAGICWAY.Zone.nuova"}}"><i class="fa-solid fa-plus"></i></button>
+      </span>
+    </header>
+    <ul class="mw-zone-elenco">
+      {{#each zone}}
+      <li class="mw-zona {{#if profondita}}sottozona{{/if}}" data-zona="{{id}}" data-discendenti="{{discendenti}}" data-action="zona"
+          {{#if fissa}}data-tooltip="{{localize "MAGICWAY.Zone.trascinaTutti"}}"{{else}}{{#unless @root.zoneBloccate}}draggable="true"{{/unless}} data-tooltip="{{localize "MAGICWAY.Zone.trascina"}}"{{/if}}
+          style="{{#if colore}}--mw-zona-colore: {{colore}};{{/if}} padding-left: {{#if rientro}}calc(8px + {{rientro}}px){{else}}8px{{/if}}">
+        <i class="fa-solid {{#if fissa}}fa-globe{{else}}{{#if profondita}}fa-folder-tree{{else}}fa-folder{{/if}}{{/if}} mw-zona-icona"></i>
+        <span class="mw-zona-nome">{{nome}}</span>
+        <span class="mw-conta">0</span>
+        {{#unless fissa}}
+        <span class="mw-zona-strumenti">
+          <button type="button" class="mw-mini" data-action="nuovaSottozona" data-tooltip="{{localize "MAGICWAY.Zone.sottozona"}}"><i class="fa-solid fa-plus"></i></button>
+          <button type="button" class="mw-mini" data-action="modificaZona" data-tooltip="{{localize "MAGICWAY.Zone.modifica"}}"><i class="fa-solid fa-pen"></i></button>
+          <button type="button" class="mw-mini" data-action="eliminaZona" data-tooltip="{{localize "MAGICWAY.Zone.elimina"}}"><i class="fa-solid fa-trash"></i></button>
+        </span>
+        {{/unless}}
+      </li>
+      {{/each}}
+    </ul>
+  </aside>
+
+  <div class="mw-principale">
+
+    {{!-- Barra in alto --}}
+    <header class="mw-barra">
+      <button type="button" class="mw-btn mw-primario" data-action="nuovo" {{#if creazione}}disabled{{/if}}>
+        <i class="fa-solid fa-plus"></i> {{localize "MAGICWAY.Pannello.nuovo"}}
+      </button>
+      <div class="mw-cerca">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" name="ricerca" value="{{ricerca}}" placeholder="{{localize "MAGICWAY.Pannello.cerca"}}" autocomplete="off">
+        <button type="button" class="mw-mini mw-cerca-svuota" data-action="svuotaRicerca" hidden><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <button type="button" class="mw-btn" data-action="apriTutti" data-tooltip="{{localize "MAGICWAY.Pannello.apriTuttiHint"}}">
+        <i class="fa-solid fa-door-open"></i> {{localize "MAGICWAY.Pannello.apriTutti"}}
+      </button>
+      <button type="button" class="mw-btn" data-action="chiudiTutti" data-tooltip="{{localize "MAGICWAY.Pannello.chiudiTuttiHint"}}">
+        <i class="fa-solid fa-door-closed"></i> {{localize "MAGICWAY.Pannello.chiudiTutti"}}
+      </button>
+      <button type="button" class="mw-btn mw-filtro {{#if soloScena}}attivo{{/if}}" data-action="filtro">
+        <i class="fa-solid fa-filter"></i> {{localize "MAGICWAY.Pannello.soloScena"}}
+      </button>
+      <button type="button" class="mw-btn" data-action="ripara" data-tooltip="{{localize "MAGICWAY.Pannello.riparaHint"}}">
+        <i class="fa-solid fa-screwdriver-wrench"></i> {{localize "MAGICWAY.Pannello.ripara"}}
+      </button>
+    </header>
+
+    {{!-- Creazione guidata --}}
+    {{#if creazione}}
+    <section class="mw-creazione">
+      {{#if creazione.faseDati}}
+        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> {{localize "MAGICWAY.Creazione.titolo"}}</h3>
+        <div class="mw-griglia">
+          <label>{{localize "MAGICWAY.Creazione.nome"}}</label>
+          <input type="text" name="c-nome" value="{{creazione.dati.nome}}" placeholder="{{localize "MAGICWAY.Creazione.nomeEsempio"}}">
+
+          <label>{{localize "MAGICWAY.Creazione.nomeArrivo"}}</label>
+          <input type="text" name="c-nomeArrivo" value="{{creazione.dati.nomeArrivo}}" placeholder="{{localize "MAGICWAY.Creazione.nomeArrivoEsempio"}}">
+
+          <label>{{localize "MAGICWAY.Creazione.modalita"}}</label>
+          <select name="c-modalita">
+            {{#each creazione.opzioni}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+          </select>
+
+          <label>{{localize "MAGICWAY.Creazione.passano"}}</label>
+          <select name="c-passano">
+            {{#each creazione.opzioniPassano}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+          </select>
+
+          <label>{{localize "MAGICWAY.Creazione.zona"}}</label>
+          <select name="c-zona">
+            {{#each creazione.opzioniZona}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+          </select>
+
+          <label>{{localize "MAGICWAY.Creazione.ritorno"}}</label>
+          <div class="mw-dim">
+            <input type="checkbox" name="c-ritorno" {{#if creazione.dati.ritorno}}checked{{/if}}>
+            <select name="c-modalitaRitorno">
+              {{#each creazione.opzioniRitorno}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+            </select>
+          </div>
+        </div>
+        <p class="mw-nota">{{localize "MAGICWAY.Creazione.spiegazione"}}</p>
+        <footer>
+          <button type="button" class="mw-btn mw-primario" data-action="scegliIngresso"><i class="fa-solid fa-vector-square"></i> {{localize "MAGICWAY.Creazione.avanti"}}</button>
+          <button type="button" class="mw-btn" data-action="annulla"><i class="fa-solid fa-xmark"></i> {{localize "MAGICWAY.Creazione.annulla"}}</button>
+        </footer>
+      {{/if}}
+      {{#if creazione.faseIngresso}}
+        <h3><i class="fa-solid fa-vector-square"></i> {{localize "MAGICWAY.Creazione.passo1"}}</h3>
+        <p>{{localize "MAGICWAY.Cattura.ingresso"}}</p>
+        <footer><button type="button" class="mw-btn" data-action="annulla"><i class="fa-solid fa-xmark"></i> {{localize "MAGICWAY.Creazione.annulla"}}</button></footer>
+      {{/if}}
+      {{#if creazione.faseArrivo}}
+        <h3><i class="fa-solid fa-location-dot"></i> {{localize "MAGICWAY.Creazione.passo2"}}</h3>
+        <p>{{localize "MAGICWAY.Creazione.ingressoFatto"}} <strong>{{creazione.ingressoTesto}}</strong>.</p>
+        <p>{{localize "MAGICWAY.Cattura.arrivo"}}</p>
+        <footer><button type="button" class="mw-btn" data-action="annulla"><i class="fa-solid fa-xmark"></i> {{localize "MAGICWAY.Creazione.annulla"}}</button></footer>
+      {{/if}}
+    </section>
+    {{/if}}
+
+    {{!-- Elenco dei collegamenti --}}
+    <div class="mw-elenco">
+      {{#if vuoto}}
+        <p class="mw-vuoto"><i class="fa-solid fa-dungeon"></i><br>{{localize "MAGICWAY.Pannello.vuoto"}}</p>
+      {{/if}}
+      <p class="mw-vuoto mw-nessun-risultato" hidden><i class="fa-solid fa-magnifying-glass"></i><br>{{localize "MAGICWAY.Pannello.nessunRisultato"}}</p>
+
+      {{#each collegamenti}}
+      <article class="mw-coppia {{#if zonaColore}}con-zona{{/if}}" data-chiave="{{chiave}}" data-zona="{{zona}}" data-corrente="{{#if corrente}}1{{else}}0{{/if}}" data-testo="{{testo}}" {{#if zonaColore}}style="--mw-zona-colore: {{zonaColore}}"{{/if}}>
+        <header class="mw-coppia-testa" draggable="true" data-tooltip="{{localize "MAGICWAY.Pannello.trascina"}}" data-tooltip-direction="UP">
+          <span class="mw-maniglia"><i class="fa-solid fa-grip-vertical"></i></span>
+          <span class="mw-coppia-titolo">{{titolo}}</span>
+          <label class="mw-coppia-zona"><i class="fa-solid fa-folder mw-zona-icona"></i>
+            <select name="zona">
+              {{#each opzioniZona}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+            </select>
+          </label>
+          <button type="button" class="mw-btn mw-icona mw-pericolo" data-action="elimina" data-tooltip="{{localize "MAGICWAY.Pannello.elimina"}}"><i class="fa-solid fa-trash"></i></button>
+        </header>
+
+        <div class="mw-coppia-corpo {{#if senzaArrivo}}singola{{/if}}">
+          {{#each lati}}
+          {{#if @index}}<div class="mw-ponte"><i class="fa-solid {{#if ../lati.[1].portale}}fa-arrows-left-right{{else}}fa-arrow-right-long{{/if}}"></i></div>{{/if}}
+          <section class="mw-lato ruolo-{{ruolo}} {{#if portale}}stato-{{portale.statoClasse}}{{else}}solo-arrivo{{/if}}" data-region="{{regionUuid}}" {{#if portale}}data-behavior="{{portale.uuid}}"{{/if}} style="--mw-colore-lato: {{colore}}">
+            <div class="mw-lato-testa">
+              <span class="mw-ruolo">{{etichetta}}</span>
+              {{#if portale}}<span class="mw-spia" data-tooltip="{{portale.stato}}"></span>{{/if}}
+              <input type="text" name="nome" value="{{nome}}" class="mw-nome" data-tooltip="{{localize "MAGICWAY.Pannello.nomeHint"}}">
+            </div>
+            <div class="mw-mappa {{#if scenaCorrente}}corrente{{/if}}">
+              <i class="fa-solid fa-map"></i> {{scena}}
+              {{#if scenaCorrente}}<span class="mw-etichetta">{{localize "MAGICWAY.Pannello.qui"}}</span>{{/if}}
+              {{#if scenaAttiva}}<span class="mw-etichetta attiva">{{localize "MAGICWAY.Pannello.attiva"}}</span>{{/if}}
+            </div>
+
+            {{#if portale}}
+            <div class="mw-riga">
+              <select name="modalita" class="mw-modalita">
+                {{#each portale.opzioni}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+              </select>
+              {{#if portale.controllato}}
+                <button type="button" class="mw-btn mw-interruttore {{#if portale.aperto}}aperto{{else}}chiuso{{/if}}" data-action="alterna">
+                  {{#if portale.aperto}}<i class="fa-solid fa-door-open"></i> {{localize "MAGICWAY.Stato.aperto"}}{{else}}<i class="fa-solid fa-door-closed"></i> {{localize "MAGICWAY.Stato.chiuso"}}{{/if}}
+                </button>
+              {{else}}
+                <span class="mw-stato">{{portale.stato}}</span>
+              {{/if}}
+            </div>
+            <div class="mw-riga">
+              <label class="mw-chi" data-tooltip="{{localize "MAGICWAY.Pannello.passanoHint"}}">
+                <i class="fa-solid fa-person-walking-arrow-right"></i>
+                <select name="passano">
+                  {{#each portale.opzioniPassano}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+                </select>
+              </label>
+              <span class="mw-presenti" data-tooltip="{{portale.nomiPresenti}}">
+                <i class="fa-solid fa-users"></i> {{portale.presenti}}{{#if portale.altri}} <em>(+{{portale.altri}})</em>{{/if}}
+              </span>
+              {{#if portale.disattivato}}<span class="mw-etichetta spento">{{localize "MAGICWAY.Stato.disattivato"}}</span>{{/if}}
+            </div>
+            {{#if portale.avviso}}
+            <div class="mw-avviso"><i class="fa-solid fa-triangle-exclamation"></i> {{portale.avviso}}</div>
+            {{/if}}
+            {{else}}
+            <div class="mw-riga mw-solo-arrivo">
+              <span>{{localize "MAGICWAY.Pannello.soloArrivo"}}</span>
+              <button type="button" class="mw-btn" data-action="creaRitorno" data-tooltip="{{localize "MAGICWAY.Pannello.creaRitornoHint"}}"><i class="fa-solid fa-rotate-left"></i> {{localize "MAGICWAY.Pannello.creaRitorno"}}</button>
+            </div>
+            {{/if}}
+
+            <div class="mw-riga mw-pulsanti">
+              {{#if portale}}
+              <button type="button" class="mw-btn mw-teleport" data-action="teletrasporta" {{#unless portale.presenti}}disabled{{/unless}} {{#unless portale.destOk}}disabled{{/unless}}>
+                <i class="fa-solid fa-person-through-window"></i> {{localize "MAGICWAY.Pannello.teletrasporta"}}
+              </button>
+              {{/if}}
+              <button type="button" class="mw-btn mw-icona" data-action="vai" data-tooltip="{{localize "MAGICWAY.Pannello.vai"}}"><i class="fa-solid fa-eye"></i></button>
+              <button type="button" class="mw-btn mw-icona mw-colore-lato" data-action="ridisegna" data-tooltip="{{localize "MAGICWAY.Pannello.ridisegna"}}"><i class="fa-solid fa-vector-square"></i></button>
+              <button type="button" class="mw-btn mw-icona" data-action="configura" data-tooltip="{{localize "MAGICWAY.Pannello.configura"}}"><i class="fa-solid fa-gear"></i></button>
+            </div>
+          </section>
+          {{/each}}
+        </div>
+      </article>
+      {{/each}}
+    </div>
+  </div>
+</div>

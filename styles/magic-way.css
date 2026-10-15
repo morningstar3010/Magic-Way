@@ -1,0 +1,192 @@
+/* ==========================================================================================
+   MAGIC WAY – pannello del master e fascia "disegna l'area"
+   Usa i colori del tema di Foundry (chiaro o scuro) con accenti viola (ingresso) e verde (arrivo).
+   ========================================================================================== */
+
+.magic-way {
+  --mw-viola: #8e44ad;
+  --mw-verde: #16a085;
+  --mw-rosso: #c0392b;
+  --mw-ambra: #d68910;
+  --mw-bordo: var(--color-border, rgba(127, 127, 127, 0.35));
+  --mw-sfondo-riga: rgba(127, 127, 127, 0.08);
+  --mw-sfondo-zone: rgba(0, 0, 0, 0.18);
+}
+
+.magic-way .window-content { padding: 0; overflow: hidden; }
+.magic-way .mw-corpo { display: flex; flex-direction: row; height: 100%; min-height: 0; }
+
+/* ---------- Colonna delle zone (alta quanto la finestra) ---------- */
+.magic-way .mw-zone {
+  flex: 0 0 200px; display: flex; flex-direction: column; min-height: 0;
+  border-right: 1px solid var(--mw-bordo); background: var(--mw-sfondo-zone);
+}
+.magic-way .mw-logo {
+  display: block; width: 150px; height: 150px; margin: 8px auto 2px; object-fit: contain; border: none;
+  filter: drop-shadow(0 0 8px rgba(80, 140, 255, 0.45));
+}
+.magic-way .mw-zone-testa {
+  display: flex; align-items: center; justify-content: space-between; gap: 6px;
+  padding: 8px 10px; border-bottom: 1px solid var(--mw-bordo); font-weight: bold; font-size: 14px;
+}
+.magic-way .mw-zone-pulsanti { display: flex; align-items: center; gap: 4px; }
+.magic-way .mw-lucchetto.aperto { color: #f0b429; border-color: #f0b429; }
+.magic-way .mw-zone-elenco { list-style: none; margin: 0; padding: 6px; overflow-y: auto; flex: 1; }
+.magic-way .mw-zona {
+  display: flex; align-items: center; gap: 6px; padding: 6px 8px; margin-bottom: 3px;
+  border-radius: 6px; cursor: pointer; border: 1px solid transparent; font-size: 13px;
+}
+.magic-way .mw-zona:hover { background: var(--mw-sfondo-riga); }
+.magic-way .mw-zona { --mw-zona-colore: var(--mw-viola); }
+.magic-way .mw-zona-icona { color: var(--mw-zona-colore, inherit); }
+.magic-way .mw-zona[data-zona="tutti"] .mw-zona-icona { color: inherit; }
+.magic-way .mw-zona.attiva {
+  border-color: var(--mw-zona-colore);
+  background: color-mix(in srgb, var(--mw-zona-colore) 28%, transparent);
+}
+.magic-way .mw-zona.sopra { border: 2px dashed var(--mw-verde); background: rgba(22, 160, 133, 0.18); }
+.magic-way.mw-trascinando .mw-zona { border-style: dashed; border-color: var(--mw-bordo); }
+.magic-way .mw-zona[hidden] { display: none; }
+.magic-way .mw-zona[draggable="true"] { cursor: grab; }
+.magic-way .mw-zona.sottozona { font-size: 12.5px; }
+.magic-way .mw-zona.vietata { border: 2px dashed var(--mw-rosso); background: rgba(192, 57, 43, 0.15); cursor: no-drop; }
+.magic-way.mw-trascina-zona .mw-zona:not(.vietata) { border-style: dashed; }
+.magic-way .mw-zona-nome { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.magic-way .mw-conta {
+  font-size: 11px; min-width: 20px; text-align: center; padding: 0 5px; border-radius: 8px;
+  background: var(--mw-sfondo-riga); border: 1px solid var(--mw-bordo);
+}
+.magic-way .mw-zona-strumenti { display: none; gap: 2px; }
+.magic-way .mw-zona:hover .mw-zona-strumenti { display: inline-flex; }
+.magic-way .mw-mini {
+  width: 22px; height: 22px; min-height: 0; padding: 0; line-height: 20px; font-size: 11px;
+  display: inline-flex; align-items: center; justify-content: center; flex: 0 0 22px;
+}
+
+/* ---------- Parte principale ---------- */
+.magic-way .mw-principale { flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.magic-way .mw-barra {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 8px 10px;
+  border-bottom: 1px solid var(--mw-bordo);
+}
+.magic-way .mw-btn {
+  display: inline-flex; align-items: center; gap: 6px; width: auto; flex: 0 0 auto;
+  padding: 3px 10px; line-height: 22px; font-size: var(--font-size-13, 13px); white-space: nowrap;
+}
+.magic-way .mw-btn.mw-primario { background: var(--mw-viola); color: #fff; border-color: var(--mw-viola); }
+.magic-way .mw-btn.mw-filtro.attivo { outline: 2px solid var(--mw-viola); }
+.magic-way .mw-btn.mw-icona { padding: 3px 8px; }
+.magic-way .mw-btn.mw-pericolo:hover { color: #fff; background: var(--mw-rosso); }
+.magic-way .mw-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.magic-way .mw-btn.mw-colore-lato i { color: var(--mw-colore-lato, var(--mw-viola)); }
+
+/* Ricerca */
+.magic-way .mw-cerca { position: relative; flex: 1 1 220px; min-width: 180px; display: flex; align-items: center; }
+.magic-way .mw-cerca > i { position: absolute; left: 9px; opacity: 0.6; pointer-events: none; }
+.magic-way .mw-cerca input { width: 100%; padding-left: 28px; padding-right: 28px; height: 30px; }
+.magic-way .mw-cerca .mw-cerca-svuota { position: absolute; right: 4px; }
+.magic-way .mw-cerca .mw-cerca-svuota[hidden] { display: none; }
+
+/* Creazione guidata */
+.magic-way .mw-creazione {
+  margin: 8px 10px; padding: 10px 12px; border: 2px dashed var(--mw-viola); border-radius: 8px;
+  background: rgba(142, 68, 173, 0.08);
+}
+.magic-way .mw-creazione h3 { margin: 0 0 8px; border: none; }
+.magic-way .mw-griglia { display: grid; grid-template-columns: 210px 1fr; gap: 6px 10px; align-items: center; }
+.magic-way .mw-dim { display: flex; align-items: center; gap: 6px; }
+.magic-way .mw-nota { font-size: 12px; opacity: 0.8; }
+.magic-way .mw-creazione footer { display: flex; gap: 6px; margin-top: 8px; }
+
+/* Elenco */
+.magic-way .mw-elenco { flex: 1; overflow-y: auto; padding: 8px 10px 12px; container-type: inline-size; }
+.magic-way .mw-vuoto { text-align: center; opacity: 0.7; margin-top: 40px; font-size: 14px; }
+.magic-way .mw-vuoto[hidden] { display: none; }
+.magic-way .mw-vuoto i { font-size: 32px; margin-bottom: 8px; }
+.magic-way .mw-etichetta {
+  font-size: 11px; padding: 1px 6px; border-radius: 10px; border: 1px solid var(--mw-bordo); font-weight: normal;
+}
+.magic-way .mw-etichetta.attiva { border-color: var(--mw-verde); color: var(--mw-verde); }
+.magic-way .mw-etichetta.spento { border-color: var(--mw-rosso); color: var(--mw-rosso); }
+
+/* Un collegamento: le due aree affiancate */
+.magic-way .mw-coppia {
+  border: 1px solid var(--mw-bordo); border-radius: 8px; margin-bottom: 10px; background: var(--mw-sfondo-riga);
+}
+.magic-way .mw-coppia[hidden] { display: none; }
+.magic-way .mw-coppia.con-zona { border-left: 5px solid var(--mw-zona-colore); }
+.magic-way .mw-coppia.con-zona .mw-coppia-testa { background: color-mix(in srgb, var(--mw-zona-colore) 18%, transparent); }
+.magic-way .mw-coppia-testa {
+  display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-bottom: 1px solid var(--mw-bordo);
+}
+.magic-way .mw-coppia-testa[draggable="true"] { cursor: grab; }
+.magic-way .mw-coppia-testa[draggable="true"]:active { cursor: grabbing; }
+.magic-way .mw-coppia-testa select, .magic-way .mw-coppia-testa button { cursor: pointer; }
+.magic-way .mw-maniglia { cursor: grab; opacity: 0.7; padding: 2px 4px; }
+.magic-way .mw-maniglia:active { cursor: grabbing; }
+.magic-way .mw-coppia-titolo { flex: 1; font-weight: bold; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.magic-way .mw-coppia-zona { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; }
+.magic-way .mw-coppia-zona select { width: 170px; flex: 0 0 170px; }
+.magic-way .mw-coppia-corpo { display: grid; grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr); gap: 0; padding: 8px; }
+.magic-way .mw-coppia-corpo.singola { grid-template-columns: minmax(0, 1fr); }
+.magic-way .mw-ponte { display: flex; align-items: center; justify-content: center; font-size: 18px; opacity: 0.75; }
+@container (max-width: 640px) {
+  .magic-way .mw-coppia-corpo { grid-template-columns: minmax(0, 1fr); }
+  .magic-way .mw-ponte { transform: rotate(90deg); padding: 4px 0; }
+}
+
+/* Un lato (area d'ingresso o d'arrivo) */
+.magic-way .mw-lato {
+  border: 1px solid var(--mw-bordo); border-left: 5px solid var(--mw-colore-lato, var(--mw-bordo)); border-radius: 6px;
+  padding: 6px 8px; display: flex; flex-direction: column; gap: 5px; min-width: 0;
+}
+.magic-way .mw-lato.stato-chiuso { box-shadow: inset 0 0 0 1px rgba(192, 57, 43, 0.4); }
+.magic-way .mw-lato.stato-spento { opacity: 0.6; }
+.magic-way .mw-lato-testa { display: flex; align-items: center; gap: 6px; }
+.magic-way .mw-ruolo {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; padding: 1px 6px; border-radius: 4px;
+  background: var(--mw-colore-lato, var(--mw-viola)); color: #fff; white-space: nowrap;
+}
+.magic-way .mw-nome { flex: 1; min-width: 80px; font-weight: bold; }
+.magic-way .mw-mappa { font-size: 12px; opacity: 0.85; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.magic-way .mw-mappa.corrente { color: var(--mw-viola); opacity: 1; font-weight: bold; }
+.magic-way .mw-riga { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.magic-way .mw-spia { width: 12px; height: 12px; border-radius: 50%; flex: 0 0 12px; background: var(--mw-bordo); }
+.magic-way .stato-aperto .mw-spia { background: var(--mw-verde); box-shadow: 0 0 6px var(--mw-verde); }
+.magic-way .stato-chiuso .mw-spia { background: var(--mw-rosso); }
+.magic-way .stato-comando .mw-spia { background: var(--mw-ambra); }
+.magic-way .mw-modalita { flex: 1 1 150px; min-width: 130px; }
+.magic-way .mw-stato { font-size: 12px; opacity: 0.85; }
+.magic-way .mw-interruttore.aperto { background: var(--mw-verde); color: #fff; border-color: var(--mw-verde); }
+.magic-way .mw-interruttore.chiuso { background: var(--mw-rosso); color: #fff; border-color: var(--mw-rosso); }
+.magic-way .mw-chi { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; flex: 1 1 180px; min-width: 150px; }
+.magic-way .mw-chi select { flex: 1; min-width: 0; }
+.magic-way .mw-presenti { font-size: 13px; white-space: nowrap; }
+.magic-way .mw-presenti em { opacity: 0.7; }
+.magic-way .mw-avviso {
+  font-size: 12px; padding: 4px 8px; border-radius: 4px; color: #fff; background: rgba(192, 57, 43, 0.85);
+}
+.magic-way .mw-solo-arrivo { font-size: 12px; opacity: 0.9; justify-content: space-between; }
+.magic-way .mw-pulsanti { margin-top: 2px; }
+.magic-way .mw-teleport:not([disabled]) { background: var(--mw-ambra); color: #fff; border-color: var(--mw-ambra); }
+
+/* Fascia in alto mentre si disegna un'area sulla mappa */
+#magic-way-fascia {
+  position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 1000;
+  display: flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 22px;
+  background: rgba(60, 20, 80, 0.92); color: #fff; font-size: 15px; pointer-events: none;
+  box-shadow: 0 0 14px rgba(142, 68, 173, 0.9); border: 1px solid #c39bd3;
+}
+#magic-way-fascia i { color: #d7bde2; }
+#magic-way-fascia em { opacity: 0.75; font-size: 12px; }
+#magic-way-fascia .mw-misure { color: #f9e79f; white-space: nowrap; }
+#magic-way-fascia .mw-misure:empty { display: none; }
+
+/* Finestra nuova/modifica zona: scelta del colore */
+.magic-way-dialogo .mw-scelta-colore { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.magic-way-dialogo .mw-scelta-colore input[type="color"] { width: 48px; height: 30px; padding: 0 2px; flex: 0 0 48px; cursor: pointer; }
+.magic-way-dialogo .mw-campione {
+  width: 22px; height: 22px; min-height: 0; flex: 0 0 22px; padding: 0; border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6); cursor: pointer;
+}
+.magic-way-dialogo .mw-campione:hover { transform: scale(1.15); border-color: #fff; }

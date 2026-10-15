@@ -1,0 +1,187 @@
+{
+  "TYPES": {
+    "RegionBehavior": {
+      "magic-way.portale": "Magic Way – Portal"
+    },
+    "HINTS": {
+      "RegionBehavior": {
+        "magic-way.portale": "Teletransporta los tokens que entran en la región a un área de llegada, incluso en otra escena. Se gestiona desde el panel de Magic Way."
+      }
+    }
+  },
+  "MAGICWAY": {
+    "Modalita": {
+      "libero": "Libre",
+      "controllato": "Abierto / cerrado",
+      "comando": "A orden del máster"
+    },
+    "Passano": {
+      "giocatori": "Solo jugadores",
+      "png": "Solo monstruos y PNJ del máster",
+      "tutti": "Jugadores, monstruos y PNJ"
+    },
+    "Impostazioni": {
+      "notifiche": {
+        "nome": "Avisar al máster en cada teletransporte",
+        "hint": "Muestra al máster quién ha sido teletransportado, a través de qué portal y a qué escena."
+      },
+      "effetto": {
+        "nome": "Efecto de desvanecimiento y aparición",
+        "hint": "Cuando el portal se activa aparece un destello mágico: el token se desvanece al partir y reaparece al llegar con un fundido. Todos lo ven."
+      },
+      "coloreEffetto": {
+        "nome": "Color del destello mágico",
+        "hint": "Color del anillo y del resplandor que aparecen cuando el portal se activa."
+      },
+      "dissolvenza": {
+        "nome": "Fundido al cambiar de escena",
+        "hint": "Los jugadores pasan a la escena de llegada con un fundido."
+      },
+      "suono": {
+        "nome": "Sonido del teletransporte",
+        "hint": "Archivo de audio que suena para todos en cada teletransporte. Déjalo vacío para no tener sonido."
+      },
+      "segueMaster": {
+        "nome": "El máster sigue al grupo",
+        "hint": "Tras un teletransporte a tu orden hacia otra escena, tu vista también pasa a la escena de llegada. Ajuste personal."
+      },
+      "lingua": {
+        "nome": "Idioma de Magic Way (solo este módulo)",
+        "hint": "Cambia solo los textos de Magic Way: el idioma de Foundry y el de los demás módulos no cambian. Útil si Magic Way no usa por sí solo el idioma correcto. «Automático» sigue el idioma de Foundry. Al cambiarlo la página se recarga. Ajuste personal.",
+        "auto": "Automático (idioma de Foundry)"
+      }
+    },
+    "Tasto": {
+      "pannello": "Abrir el panel de Magic Way"
+    },
+    "Avvisi": {
+      "serveMaster": "Magic Way: hace falta un máster conectado para completar el teletransporte.",
+      "senzaArrivo": "Magic Way: el portal «{nome}» no tiene un área de llegada válida.",
+      "fatto": "Magic Way: {chi} → «{portale}» → {scena}",
+      "creato": "Magic Way: portal «{nome}» creado ({da} → {a}).",
+      "nessunoPresente": "Magic Way: no hay nadie que teletransportar en el área del portal «{nome}».",
+      "nascosta": "El área «{nome}» se ha marcado como «Oculta»: en Foundry 14 esto apaga el portal. Quita la marca para que funcione (los jugadores no ven las áreas de Magic Way de todos modos).",
+      "soloMaster": "Magic Way: solo el máster puede usar el panel de portales.",
+      "nonTrovato": "Magic Way: portal «{nome}» no encontrado.",
+      "errore": "Magic Way: el teletransporte del portal «{nome}» ha fallado (detalles en la consola, F12).",
+      "ritornoCreato": "Magic Way: creado el regreso desde «{nome}».",
+      "riparati": "Magic Way: enlaces reparados {n}, zonas recreadas {z}.",
+      "tuttoAPosto": "Magic Way: todos los enlaces están bien.",
+      "mancanti": "Magic Way: {n} portales sin llegada. Mapas que importar: {scene}."
+    },
+    "Cattura": {
+      "esc": "Esc o clic derecho = cancelar",
+      "ingresso": "Arrastra en el mapa para dibujar el área de ENTRADA (un clic = una casilla).",
+      "arrivo": "Abre la escena de llegada (o quédate en esta) y arrastra para dibujar el área de LLEGADA.",
+      "ridisegna": "Abre la escena correcta y arrastra para volver a dibujar el área «{nome}»."
+    },
+    "Portale": {
+      "nomePredefinito": "Portal",
+      "arrivo": "llegada",
+      "ritorno": "regreso"
+    },
+    "Pannello": {
+      "titolo": "Magic Way – Panel de portales",
+      "pulsante": "Magic Way – Panel de portales",
+      "nuovo": "Nuevo portal",
+      "apriTutti": "Abrir todos",
+      "apriTuttiHint": "Abre todos los portales en modo abierto/cerrado (solo los de la lista).",
+      "chiudiTutti": "Cerrar todos",
+      "chiudiTuttiHint": "Cierra todos los portales en modo abierto/cerrado (solo los de la lista).",
+      "soloScena": "Solo esta escena",
+      "vuoto": "Todavía no hay portales. Pulsa «Nuevo portal» para crear uno.",
+      "qui": "estás viendo esta",
+      "attiva": "activa para los jugadores",
+      "passanoHint": "Quién se teletransporta: solo los tokens de los jugadores, solo los monstruos y PNJ del máster, o todos.",
+      "teletrasporta": "Teletransportar ahora",
+      "configura": "Configuración de la región",
+      "elimina": "Eliminar el enlace",
+      "cerca": "Buscar portal o mapa…",
+      "nessunRisultato": "Ningún portal coincide con la búsqueda.",
+      "ingresso": "Entrada",
+      "arrivo": "Llegada",
+      "soloArrivo": "Solo llegada: desde aquí no se sale.",
+      "creaRitorno": "Crear el regreso",
+      "creaRitornoHint": "Convierte también esta área en un portal que lleva de vuelta a la otra.",
+      "trascina": "Arrastra desde aquí sobre una zona a la izquierda para poner el portal en ella",
+      "vai": "Mostrar esta área en el mapa",
+      "ridisegna": "Volver a dibujar esta área (arrastra en el mapa, incluso en otra escena)",
+      "nomeHint": "Nombre de esta área: escríbelo tú",
+      "ripara": "Reparar enlaces",
+      "riparaHint": "Tras importar mapas o aventuras de otro mundo: encuentra las llegadas por sus códigos, repara los enlaces y vuelve a crear las zonas. También se ejecuta solo al iniciar y tras cada importación.",
+      "arrivoMancante": "Llegada «{nome}» no encontrada: importa también el mapa «{scena}» y pulsa Reparar enlaces.",
+      "arrivoMancanteGenerico": "Este portal no tiene área de llegada: vuelve a dibujarla o elimina el enlace."
+    },
+    "Stato": {
+      "disattivato": "desactivado",
+      "sempreAperto": "siempre abierto",
+      "aperto": "Abierto",
+      "chiuso": "Cerrado",
+      "attesa": "espera tu orden"
+    },
+    "Creazione": {
+      "titolo": "Nuevo portal",
+      "nome": "Nombre de la entrada",
+      "nomeEsempio": "p. ej. Círculo mágico de la torre",
+      "modalita": "Modo",
+      "passano": "Quién puede pasar",
+      "ritorno": "Crear también el regreso",
+      "spiegazione": "Tras «Siguiente» arrastras en el mapa para dibujar el área de entrada (tan grande como quieras, ajustada a la cuadrícula; un simple clic toma una casilla), luego abres la escena de llegada (o te quedas en esta) y dibujas del mismo modo el área de llegada. Las áreas son invisibles para los jugadores: tú las ves coloreadas solo con la capa de Regiones activa.",
+      "avanti": "Siguiente: dibuja la entrada",
+      "annulla": "Cancelar",
+      "passo1": "Paso 1 de 2 – entrada",
+      "passo2": "Paso 2 de 2 – llegada",
+      "ingressoFatto": "Entrada fijada en la escena",
+      "nomeArrivo": "Nombre de la llegada",
+      "nomeArrivoEsempio": "p. ej. Círculo mágico de la cripta",
+      "zona": "Zona"
+    },
+    "Elimina": {
+      "titolo": "Eliminar enlace",
+      "domanda": "¿Eliminar el enlace {nome} con sus áreas?"
+    },
+    "Comune": {
+      "si": "Sí",
+      "no": "No"
+    },
+    "Comportamento": {
+      "FIELDS": {
+        "destinazione": {
+          "label": "Área de llegada",
+          "hint": "La región donde aparecen los tokens (arrástrala aquí o pega su UUID). Puede estar en otra escena."
+        },
+        "modalita": {
+          "label": "Modo",
+          "hint": "Libre: quien entra pasa enseguida. Abierto/cerrado: solo mientras el máster lo mantenga abierto. A orden: solo cuando el máster pulsa «Teletransportar ahora»."
+        },
+        "aperto": {
+          "label": "Abierto",
+          "hint": "Solo se usa en el modo abierto/cerrado."
+        },
+        "passano": {
+          "label": "Quién pasa",
+          "hint": "Solo los tokens de los jugadores, solo los monstruos y PNJ del máster, o todos."
+        }
+      }
+    },
+    "Zone": {
+      "titolo": "Zonas",
+      "tutti": "Todos",
+      "nuova": "Nueva zona",
+      "nome": "Nombre de la zona",
+      "salva": "Guardar",
+      "modifica": "Editar zona",
+      "colore": "Color",
+      "elimina": "Eliminar zona",
+      "eliminaDomanda": "¿Eliminar la zona «{nome}»? Sus portales y subzonas pasan a la zona superior (o se quedan sin zona).",
+      "nessuna": "— sin zona —",
+      "trascina": "Haz clic para filtrar (incluye las subzonas). Arrastra aquí un portal para ponerlo en esta zona, u otra zona para convertirla en su subzona.",
+      "sottozona": "Nueva subzona (dentro de esta zona)",
+      "dentro": "Dentro de la zona",
+      "inCima": "— nivel superior (sin zona superior) —",
+      "bloccate": "Mover las zonas está bloqueado: haz clic para desbloquearlo. Los portales siempre se pueden arrastrar a las zonas.",
+      "sbloccate": "Mover las zonas está desbloqueado: arrastra una zona sobre otra para moverla. Haz clic para bloquearlo.",
+      "trascinaTutti": "Muestra todos los portales. Arrastra aquí un portal para quitarle la zona, o una zona para devolverla al nivel superior."
+    }
+  }
+}

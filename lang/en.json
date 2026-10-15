@@ -1,0 +1,187 @@
+{
+  "TYPES": {
+    "RegionBehavior": {
+      "magic-way.portale": "Magic Way – Portal"
+    },
+    "HINTS": {
+      "RegionBehavior": {
+        "magic-way.portale": "Teleports tokens entering the region to an arrival area, even on another scene. Managed from the Magic Way panel."
+      }
+    }
+  },
+  "MAGICWAY": {
+    "Modalita": {
+      "libero": "Free",
+      "controllato": "Open / closed",
+      "comando": "On GM command"
+    },
+    "Passano": {
+      "giocatori": "Players only",
+      "png": "Only GM monsters and NPCs",
+      "tutti": "Players, monsters and NPCs"
+    },
+    "Impostazioni": {
+      "notifiche": {
+        "nome": "Notify the GM on every teleport",
+        "hint": "Shows the GM who was teleported, through which portal and to which scene."
+      },
+      "effetto": {
+        "nome": "Fade-out and appear effect",
+        "hint": "When the portal activates a magic flash appears: the token fades out at departure and fades back in at arrival. Everyone sees it."
+      },
+      "coloreEffetto": {
+        "nome": "Magic flash colour",
+        "hint": "Colour of the ring and glow shown when the portal activates."
+      },
+      "dissolvenza": {
+        "nome": "Fade on scene change",
+        "hint": "Players are moved to the arrival scene with a fade transition."
+      },
+      "suono": {
+        "nome": "Teleport sound",
+        "hint": "Audio file played for everyone on each teleport. Leave empty for no sound."
+      },
+      "segueMaster": {
+        "nome": "GM follows the party",
+        "hint": "After a commanded teleport to another scene, your view moves to the arrival scene too. Personal setting."
+      },
+      "lingua": {
+        "nome": "Magic Way language (this module only)",
+        "hint": "Changes only Magic Way's texts: Foundry's language and other modules stay as they are. Useful if Magic Way does not pick the right language by itself. \"Automatic\" follows Foundry's language. Changing it reloads the page. Personal setting.",
+        "auto": "Automatic (Foundry's language)"
+      }
+    },
+    "Tasto": {
+      "pannello": "Open the Magic Way panel"
+    },
+    "Avvisi": {
+      "serveMaster": "Magic Way: a GM must be connected to complete the teleport.",
+      "senzaArrivo": "Magic Way: portal \"{nome}\" has no valid arrival area.",
+      "fatto": "Magic Way: {chi} → \"{portale}\" → {scena}",
+      "creato": "Magic Way: portal \"{nome}\" created ({da} → {a}).",
+      "nessunoPresente": "Magic Way: nobody to teleport inside portal \"{nome}\".",
+      "nascosta": "The area «{nome}» was marked as «Hidden»: in Foundry 14 this switches the portal off. Untick it to make it work (players can't see Magic Way areas anyway).",
+      "soloMaster": "Magic Way: only the GM can use the portal panel.",
+      "nonTrovato": "Magic Way: portal \"{nome}\" not found.",
+      "errore": "Magic Way: the teleport through portal \"{nome}\" failed (details in the console, F12).",
+      "ritornoCreato": "Magic Way: return created from \"{nome}\".",
+      "riparati": "Magic Way: links repaired {n}, zones recreated {z}.",
+      "tuttoAPosto": "Magic Way: all links are fine.",
+      "mancanti": "Magic Way: {n} portals without arrival. Maps to import: {scene}."
+    },
+    "Cattura": {
+      "esc": "Esc or right click = cancel",
+      "ingresso": "Drag on the map to draw the ENTRANCE area (a single click = one space).",
+      "arrivo": "Open the arrival scene (or stay here) and drag to draw the ARRIVAL area.",
+      "ridisegna": "Open the right scene and drag to redraw the area \"{nome}\"."
+    },
+    "Portale": {
+      "nomePredefinito": "Portal",
+      "arrivo": "arrival",
+      "ritorno": "return"
+    },
+    "Pannello": {
+      "titolo": "Magic Way – Portal panel",
+      "pulsante": "Magic Way – Portal panel",
+      "nuovo": "New portal",
+      "apriTutti": "Open all",
+      "apriTuttiHint": "Opens every open/closed portal (only those listed).",
+      "chiudiTutti": "Close all",
+      "chiudiTuttiHint": "Closes every open/closed portal (only those listed).",
+      "soloScena": "This scene only",
+      "vuoto": "No portals yet. Press \"New portal\" to create one.",
+      "qui": "you are viewing this",
+      "attiva": "active for players",
+      "passanoHint": "Who gets teleported: only player tokens, only monsters and NPCs run by the GM, or everyone.",
+      "teletrasporta": "Teleport now",
+      "configura": "Region configuration",
+      "elimina": "Delete the link",
+      "cerca": "Search portal or map…",
+      "nessunRisultato": "No portal matches the search.",
+      "ingresso": "Entrance",
+      "arrivo": "Arrival",
+      "soloArrivo": "Arrival only: nobody leaves from here.",
+      "creaRitorno": "Create the return",
+      "creaRitornoHint": "Turns this area into a portal back to the other one too.",
+      "trascina": "Drag from here onto a zone on the left to put the portal in it",
+      "vai": "Show this area on the map",
+      "ridisegna": "Redraw this area (drag on the map, even on another scene)",
+      "nomeHint": "Name of this area: type your own",
+      "ripara": "Repair links",
+      "riparaHint": "After importing maps or adventures from another world: finds arrivals by their codes, repairs the links and recreates the zones. It also runs by itself at startup and after every import.",
+      "arrivoMancante": "Arrival \"{nome}\" not found: also import the map \"{scena}\" and press Repair links.",
+      "arrivoMancanteGenerico": "This portal has no arrival area: redraw it or delete the link."
+    },
+    "Stato": {
+      "disattivato": "disabled",
+      "sempreAperto": "always open",
+      "aperto": "Open",
+      "chiuso": "Closed",
+      "attesa": "waiting for your command"
+    },
+    "Creazione": {
+      "titolo": "New portal",
+      "nome": "Entrance name",
+      "nomeEsempio": "e.g. Tower magic circle",
+      "modalita": "Mode",
+      "passano": "Who can pass",
+      "ritorno": "Also create the return",
+      "spiegazione": "After \"Next\" drag on the map to draw the entrance area (as large as you want, snapped to the grid; a single click takes one space), then open the arrival scene (or stay here) and draw the arrival area the same way. Areas are invisible to players: you see them coloured only on the Regions layer.",
+      "avanti": "Next: draw the entrance",
+      "annulla": "Cancel",
+      "passo1": "Step 1 of 2 – entrance",
+      "passo2": "Step 2 of 2 – arrival",
+      "ingressoFatto": "Entrance set on scene",
+      "nomeArrivo": "Arrival name",
+      "nomeArrivoEsempio": "e.g. Crypt magic circle",
+      "zona": "Zone"
+    },
+    "Elimina": {
+      "titolo": "Delete link",
+      "domanda": "Delete the link {nome} and its areas?"
+    },
+    "Comune": {
+      "si": "Yes",
+      "no": "No"
+    },
+    "Comportamento": {
+      "FIELDS": {
+        "destinazione": {
+          "label": "Arrival area",
+          "hint": "The region where tokens appear (drop it here or paste its UUID). It can be on another scene."
+        },
+        "modalita": {
+          "label": "Mode",
+          "hint": "Free: tokens pass at once. Open/closed: only while the GM keeps it open. On command: only when the GM presses \"Teleport now\"."
+        },
+        "aperto": {
+          "label": "Open",
+          "hint": "Used only in open/closed mode."
+        },
+        "passano": {
+          "label": "Who passes",
+          "hint": "Only player tokens, only monsters and NPCs run by the GM, or everyone."
+        }
+      }
+    },
+    "Zone": {
+      "titolo": "Zones",
+      "tutti": "All",
+      "nuova": "New zone",
+      "nome": "Zone name",
+      "salva": "Save",
+      "modifica": "Edit zone",
+      "colore": "Colour",
+      "elimina": "Delete zone",
+      "eliminaDomanda": "Delete zone \"{nome}\"? Its portals and sub-zones move to the parent zone (or are left without a zone).",
+      "nessuna": "— no zone —",
+      "trascina": "Click to filter (sub-zones included). Drag a portal here to put it in this zone, or another zone to make it a sub-zone of this one.",
+      "sottozona": "New sub-zone (inside this zone)",
+      "dentro": "Inside zone",
+      "inCima": "— top level (no parent zone) —",
+      "bloccate": "Moving zones is locked: click to unlock it. Portals can always be dragged into zones.",
+      "sbloccate": "Moving zones is unlocked: drag a zone onto another to move it. Click to lock it.",
+      "trascinaTutti": "Shows every portal. Drag a portal here to remove its zone, or a zone to move it back to the top level."
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "TYPES": {
+    "RegionBehavior": {
+      "magic-way.portale": "Magic Way – Portal"
+    },
+    "HINTS": {
+      "RegionBehavior": {
+        "magic-way.portale": "Teleportuje żetony wchodzące do regionu do obszaru przybycia, także na innej scenie. Zarządzane z panelu Magic Way."
+      }
+    }
+  },
+  "MAGICWAY": {
+    "Modalita": {
+      "libero": "Swobodny",
+      "controllato": "Otwarty / zamknięty",
+      "comando": "Na polecenie MG"
+    },
+    "Passano": {
+      "giocatori": "Tylko gracze",
+      "png": "Tylko potwory i BN MG",
+      "tutti": "Gracze, potwory i BN"
+    },
+    "Impostazioni": {
+      "notifiche": {
+        "nome": "Powiadamiaj MG o każdej teleportacji",
+        "hint": "Pokazuje MG, kto został teleportowany, przez który portal i na jaką scenę."
+      },
+      "effetto": {
+        "nome": "Efekt znikania i pojawiania się",
+        "hint": "Gdy portal się uaktywni, pojawia się magiczny błysk: żeton znika przy odejściu i pojawia się przy przybyciu. Widzą to wszyscy."
+      },
+      "coloreEffetto": {
+        "nome": "Kolor magicznego błysku",
+        "hint": "Kolor pierścienia i poświaty pokazywanych przy uaktywnieniu portalu."
+      },
+      "dissolvenza": {
+        "nome": "Przejście przy zmianie sceny",
+        "hint": "Gracze są przenoszeni na scenę przybycia z płynnym przejściem."
+      },
+      "suono": {
+        "nome": "Dźwięk teleportacji",
+        "hint": "Plik dźwiękowy odtwarzany wszystkim przy każdej teleportacji. Pozostaw puste, aby nie było dźwięku."
+      },
+      "segueMaster": {
+        "nome": "MG podąża za drużyną",
+        "hint": "Po teleportacji na Twoje polecenie na inną scenę Twój widok również przechodzi na scenę przybycia. Ustawienie osobiste."
+      },
+      "lingua": {
+        "nome": "Język Magic Way (tylko ten moduł)",
+        "hint": "Zmienia tylko teksty Magic Way: język Foundry i innych modułów pozostaje bez zmian. Przydatne, jeśli Magic Way sam nie używa właściwego języka. „Automatycznie” podąża za językiem Foundry. Po zmianie strona zostanie przeładowana. Ustawienie osobiste.",
+        "auto": "Automatycznie (język Foundry)"
+      }
+    },
+    "Tasto": {
+      "pannello": "Otwórz panel Magic Way"
+    },
+    "Avvisi": {
+      "serveMaster": "Magic Way: do dokończenia teleportacji potrzebny jest połączony MG.",
+      "senzaArrivo": "Magic Way: portal „{nome}” nie ma prawidłowego obszaru przybycia.",
+      "fatto": "Magic Way: {chi} → „{portale}” → {scena}",
+      "creato": "Magic Way: utworzono portal „{nome}” ({da} → {a}).",
+      "nessunoPresente": "Magic Way: w obszarze portalu „{nome}” nie ma nikogo do teleportacji.",
+      "nascosta": "Obszar «{nome}» został oznaczony jako «Ukryty»: w Foundry 14 wyłącza to portal. Odznacz, aby działał (gracze i tak nie widzą obszarów Magic Way).",
+      "soloMaster": "Magic Way: tylko MG może używać panelu portali.",
+      "nonTrovato": "Magic Way: nie znaleziono portalu „{nome}”.",
+      "errore": "Magic Way: teleportacja przez portal „{nome}” nie powiodła się (szczegóły w konsoli, F12).",
+      "ritornoCreato": "Magic Way: utworzono powrót z „{nome}”.",
+      "riparati": "Magic Way: naprawione połączenia: {n}, odtworzone strefy: {z}.",
+      "tuttoAPosto": "Magic Way: wszystkie połączenia są w porządku.",
+      "mancanti": "Magic Way: portali bez przybycia: {n}. Mapy do zaimportowania: {scene}."
+    },
+    "Cattura": {
+      "esc": "Esc lub prawy klik = anuluj",
+      "ingresso": "Przeciągnij po mapie, aby narysować obszar WEJŚCIA (jedno kliknięcie = jedno pole).",
+      "arrivo": "Otwórz scenę przybycia (lub zostań na tej) i przeciągnij, aby narysować obszar PRZYBYCIA.",
+      "ridisegna": "Otwórz właściwą scenę i przeciągnij, aby ponownie narysować obszar „{nome}”."
+    },
+    "Portale": {
+      "nomePredefinito": "Portal",
+      "arrivo": "przybycie",
+      "ritorno": "powrót"
+    },
+    "Pannello": {
+      "titolo": "Magic Way – Panel portali",
+      "pulsante": "Magic Way – Panel portali",
+      "nuovo": "Nowy portal",
+      "apriTutti": "Otwórz wszystkie",
+      "apriTuttiHint": "Otwiera wszystkie portale w trybie otwarty/zamknięty (tylko widoczne na liście).",
+      "chiudiTutti": "Zamknij wszystkie",
+      "chiudiTuttiHint": "Zamyka wszystkie portale w trybie otwarty/zamknięty (tylko widoczne na liście).",
+      "soloScena": "Tylko ta scena",
+      "vuoto": "Nie ma jeszcze portali. Kliknij „Nowy portal”, aby go utworzyć.",
+      "qui": "oglądasz tę scenę",
+      "attiva": "aktywna dla graczy",
+      "passanoHint": "Kto jest teleportowany: tylko żetony graczy, tylko potwory i BN prowadzone przez MG, albo wszyscy.",
+      "teletrasporta": "Teleportuj teraz",
+      "configura": "Konfiguracja regionu",
+      "elimina": "Usuń połączenie",
+      "cerca": "Szukaj portalu lub mapy…",
+      "nessunRisultato": "Żaden portal nie pasuje do wyszukiwania.",
+      "ingresso": "Wejście",
+      "arrivo": "Przybycie",
+      "soloArrivo": "Tylko przybycie: stąd nikt nie wyrusza.",
+      "creaRitorno": "Utwórz powrót",
+      "creaRitornoHint": "Zamienia ten obszar także w portal prowadzący z powrotem do drugiego.",
+      "trascina": "Przeciągnij stąd na strefę po lewej, aby umieścić w niej portal",
+      "vai": "Pokaż ten obszar na mapie",
+      "ridisegna": "Narysuj ten obszar ponownie (przeciągnij po mapie, także na innej scenie)",
+      "nomeHint": "Nazwa tego obszaru: wpisz własną",
+      "ripara": "Napraw połączenia",
+      "riparaHint": "Po zaimportowaniu map lub przygód z innego świata: odnajduje przybycia po ich kodach, naprawia połączenia i odtwarza strefy. Uruchamia się też sam przy starcie i po każdym imporcie.",
+      "arrivoMancante": "Nie znaleziono przybycia „{nome}”: zaimportuj też mapę „{scena}” i kliknij Napraw połączenia.",
+      "arrivoMancanteGenerico": "Ten portal nie ma obszaru przybycia: narysuj go ponownie lub usuń połączenie."
+    },
+    "Stato": {
+      "disattivato": "wyłączony",
+      "sempreAperto": "zawsze otwarty",
+      "aperto": "Otwarty",
+      "chiuso": "Zamknięty",
+      "attesa": "czeka na Twoje polecenie"
+    },
+    "Creazione": {
+      "titolo": "Nowy portal",
+      "nome": "Nazwa wejścia",
+      "nomeEsempio": "np. Magiczny krąg wieży",
+      "modalita": "Tryb",
+      "passano": "Kto może przejść",
+      "ritorno": "Utwórz także powrót",
+      "spiegazione": "Po „Dalej” przeciągnij po mapie, aby narysować obszar wejścia (dowolnej wielkości, wyrównany do siatki; zwykłe kliknięcie bierze jedno pole), potem otwórz scenę przybycia (lub zostań na tej) i tak samo narysuj obszar przybycia. Gracze nie widzą obszarów: Ty widzisz je w kolorze tylko przy aktywnej warstwie regionów.",
+      "avanti": "Dalej: narysuj wejście",
+      "annulla": "Anuluj",
+      "passo1": "Krok 1 z 2 – wejście",
+      "passo2": "Krok 2 z 2 – przybycie",
+      "ingressoFatto": "Wejście ustawione na scenie",
+      "nomeArrivo": "Nazwa przybycia",
+      "nomeArrivoEsempio": "np. Magiczny krąg krypty",
+      "zona": "Strefa"
+    },
+    "Elimina": {
+      "titolo": "Usuń połączenie",
+      "domanda": "Usunąć połączenie {nome} wraz z jego obszarami?"
+    },
+    "Comune": {
+      "si": "Tak",
+      "no": "Nie"
+    },
+    "Comportamento": {
+      "FIELDS": {
+        "destinazione": {
+          "label": "Obszar przybycia",
+          "hint": "Region, w którym pojawiają się żetony (przeciągnij go tutaj lub wklej jego UUID). Może być na innej scenie."
+        },
+        "modalita": {
+          "label": "Tryb",
+          "hint": "Swobodny: kto wejdzie, od razu przechodzi. Otwarty/zamknięty: tylko gdy MG trzyma go otwartym. Na polecenie: tylko gdy MG kliknie „Teleportuj teraz”."
+        },
+        "aperto": {
+          "label": "Otwarty",
+          "hint": "Używane tylko w trybie otwarty/zamknięty."
+        },
+        "passano": {
+          "label": "Kto przechodzi",
+          "hint": "Tylko żetony graczy, tylko potwory i BN prowadzone przez MG, albo wszyscy."
+        }
+      }
+    },
+    "Zone": {
+      "titolo": "Strefy",
+      "tutti": "Wszystkie",
+      "nuova": "Nowa strefa",
+      "nome": "Nazwa strefy",
+      "salva": "Zapisz",
+      "modifica": "Edytuj strefę",
+      "colore": "Kolor",
+      "elimina": "Usuń strefę",
+      "eliminaDomanda": "Usunąć strefę „{nome}”? Jej portale i podstrefy przejdą do strefy nadrzędnej (lub zostaną bez strefy).",
+      "nessuna": "— bez strefy —",
+      "trascina": "Kliknij, aby filtrować (z podstrefami). Przeciągnij tu portal, aby dodać go do tej strefy, albo inną strefę, aby stała się jej podstrefą.",
+      "sottozona": "Nowa podstrefa (w tej strefie)",
+      "dentro": "W strefie",
+      "inCima": "— najwyższy poziom (bez strefy nadrzędnej) —",
+      "bloccate": "Przenoszenie stref jest zablokowane: kliknij, aby je odblokować. Portale zawsze można przeciągać do stref.",
+      "sbloccate": "Przenoszenie stref jest odblokowane: przeciągnij strefę na inną, aby ją przenieść. Kliknij, aby zablokować.",
+      "trascinaTutti": "Pokazuje wszystkie portale. Przeciągnij tu portal, aby usunąć go ze strefy, albo strefę, aby wróciła na najwyższy poziom."
+    }
+  }
+}

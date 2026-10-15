@@ -1,0 +1,187 @@
+{
+  "TYPES": {
+    "RegionBehavior": {
+      "magic-way.portale": "Magic Way – Portal"
+    },
+    "HINTS": {
+      "RegionBehavior": {
+        "magic-way.portale": "Teleportiert Token, die die Region betreten, in einen Ankunftsbereich, auch auf einer anderen Szene. Wird über das Magic-Way-Panel verwaltet."
+      }
+    }
+  },
+  "MAGICWAY": {
+    "Modalita": {
+      "libero": "Frei",
+      "controllato": "Offen / geschlossen",
+      "comando": "Auf Befehl der SL"
+    },
+    "Passano": {
+      "giocatori": "Nur Spieler",
+      "png": "Nur Monster und NSC der SL",
+      "tutti": "Spieler, Monster und NSC"
+    },
+    "Impostazioni": {
+      "notifiche": {
+        "nome": "SL bei jeder Teleportation benachrichtigen",
+        "hint": "Zeigt der SL, wer durch welches Portal in welche Szene teleportiert wurde."
+      },
+      "effetto": {
+        "nome": "Ausblend- und Erscheinungseffekt",
+        "hint": "Wenn das Portal aktiviert wird, erscheint ein magischer Blitz: Der Token verblasst beim Aufbruch und blendet bei der Ankunft wieder ein. Alle sehen es."
+      },
+      "coloreEffetto": {
+        "nome": "Farbe des magischen Blitzes",
+        "hint": "Farbe des Rings und des Leuchtens, die bei Aktivierung des Portals erscheinen."
+      },
+      "dissolvenza": {
+        "nome": "Überblendung beim Szenenwechsel",
+        "hint": "Spieler werden mit einer Überblendung in die Ankunftsszene gebracht."
+      },
+      "suono": {
+        "nome": "Teleportationsgeräusch",
+        "hint": "Audiodatei, die bei jeder Teleportation für alle abgespielt wird. Leer lassen für keinen Ton."
+      },
+      "segueMaster": {
+        "nome": "SL folgt der Gruppe",
+        "hint": "Nach einer befohlenen Teleportation in eine andere Szene wechselt auch deine Ansicht zur Ankunftsszene. Persönliche Einstellung."
+      },
+      "lingua": {
+        "nome": "Sprache von Magic Way (nur dieses Modul)",
+        "hint": "Ändert nur die Texte von Magic Way: Die Sprache von Foundry und die anderer Module bleiben unverändert. Nützlich, wenn Magic Way nicht von selbst die richtige Sprache verwendet. „Automatisch“ folgt der Sprache von Foundry. Beim Ändern wird die Seite neu geladen. Persönliche Einstellung.",
+        "auto": "Automatisch (Sprache von Foundry)"
+      }
+    },
+    "Tasto": {
+      "pannello": "Magic-Way-Panel öffnen"
+    },
+    "Avvisi": {
+      "serveMaster": "Magic Way: Eine SL muss verbunden sein, um die Teleportation abzuschließen.",
+      "senzaArrivo": "Magic Way: Portal „{nome}“ hat keinen gültigen Ankunftsbereich.",
+      "fatto": "Magic Way: {chi} → „{portale}“ → {scena}",
+      "creato": "Magic Way: Portal „{nome}“ erstellt ({da} → {a}).",
+      "nessunoPresente": "Magic Way: Im Bereich des Portals „{nome}“ ist niemand zum Teleportieren.",
+      "nascosta": "Der Bereich «{nome}» wurde als «Versteckt» markiert: In Foundry 14 schaltet das das Portal ab. Entferne den Haken, damit es funktioniert (Spieler sehen die Bereiche von Magic Way ohnehin nicht).",
+      "soloMaster": "Magic Way: Nur die SL kann das Portal-Panel verwenden.",
+      "nonTrovato": "Magic Way: Portal „{nome}“ nicht gefunden.",
+      "errore": "Magic Way: Die Teleportation durch Portal „{nome}“ ist fehlgeschlagen (Details in der Konsole, F12).",
+      "ritornoCreato": "Magic Way: Rückweg von „{nome}“ erstellt.",
+      "riparati": "Magic Way: Verbindungen repariert {n}, Zonen neu erstellt {z}.",
+      "tuttoAPosto": "Magic Way: Alle Verbindungen sind in Ordnung.",
+      "mancanti": "Magic Way: {n} Portale ohne Ankunft. Zu importierende Karten: {scene}."
+    },
+    "Cattura": {
+      "esc": "Esc oder Rechtsklick = abbrechen",
+      "ingresso": "Ziehe auf der Karte, um den EINGANGSBEREICH zu zeichnen (ein Klick = ein Feld).",
+      "arrivo": "Öffne die Ankunftsszene (oder bleib hier) und ziehe, um den ANKUNFTSBEREICH zu zeichnen.",
+      "ridisegna": "Öffne die richtige Szene und ziehe, um den Bereich „{nome}“ neu zu zeichnen."
+    },
+    "Portale": {
+      "nomePredefinito": "Portal",
+      "arrivo": "Ankunft",
+      "ritorno": "Rückweg"
+    },
+    "Pannello": {
+      "titolo": "Magic Way – Portal-Panel",
+      "pulsante": "Magic Way – Portal-Panel",
+      "nuovo": "Neues Portal",
+      "apriTutti": "Alle öffnen",
+      "apriTuttiHint": "Öffnet alle Portale im Modus offen/geschlossen (nur die aufgelisteten).",
+      "chiudiTutti": "Alle schließen",
+      "chiudiTuttiHint": "Schließt alle Portale im Modus offen/geschlossen (nur die aufgelisteten).",
+      "soloScena": "Nur diese Szene",
+      "vuoto": "Noch keine Portale. Klicke auf „Neues Portal“, um eines zu erstellen.",
+      "qui": "du siehst diese gerade",
+      "attiva": "aktiv für Spieler",
+      "passanoHint": "Wer teleportiert wird: nur Spieler-Token, nur von der SL geführte Monster und NSC, oder alle.",
+      "teletrasporta": "Jetzt teleportieren",
+      "configura": "Regionskonfiguration",
+      "elimina": "Verbindung löschen",
+      "cerca": "Portal oder Karte suchen…",
+      "nessunRisultato": "Kein Portal entspricht der Suche.",
+      "ingresso": "Eingang",
+      "arrivo": "Ankunft",
+      "soloArrivo": "Nur Ankunft: von hier reist niemand ab.",
+      "creaRitorno": "Rückweg erstellen",
+      "creaRitornoHint": "Macht diesen Bereich zusätzlich zu einem Portal zurück zum anderen.",
+      "trascina": "Von hier auf eine Zone links ziehen, um das Portal dort abzulegen",
+      "vai": "Diesen Bereich auf der Karte zeigen",
+      "ridisegna": "Diesen Bereich neu zeichnen (auf der Karte ziehen, auch auf einer anderen Szene)",
+      "nomeHint": "Name dieses Bereichs: frei wählbar",
+      "ripara": "Verbindungen reparieren",
+      "riparaHint": "Nach dem Import von Karten oder Abenteuern aus einer anderen Welt: findet die Ankünfte über ihre Codes, repariert die Verbindungen und erstellt die Zonen neu. Läuft auch automatisch beim Start und nach jedem Import.",
+      "arrivoMancante": "Ankunft „{nome}“ nicht gefunden: importiere auch die Karte „{scena}“ und klicke auf Verbindungen reparieren.",
+      "arrivoMancanteGenerico": "Dieses Portal hat keinen Ankunftsbereich: zeichne ihn neu oder lösche die Verbindung."
+    },
+    "Stato": {
+      "disattivato": "deaktiviert",
+      "sempreAperto": "immer offen",
+      "aperto": "Offen",
+      "chiuso": "Geschlossen",
+      "attesa": "wartet auf deinen Befehl"
+    },
+    "Creazione": {
+      "titolo": "Neues Portal",
+      "nome": "Name des Eingangs",
+      "nomeEsempio": "z. B. Magischer Kreis im Turm",
+      "modalita": "Modus",
+      "passano": "Wer darf hindurch",
+      "ritorno": "Auch den Rückweg erstellen",
+      "spiegazione": "Nach „Weiter“ ziehst du auf der Karte, um den Eingangsbereich zu zeichnen (so groß du willst, am Raster ausgerichtet; ein einfacher Klick nimmt ein Feld), dann öffnest du die Ankunftsszene (oder bleibst hier) und zeichnest den Ankunftsbereich auf dieselbe Weise. Die Bereiche sind für Spieler unsichtbar: Du siehst sie nur farbig, wenn die Regionen-Ebene aktiv ist.",
+      "avanti": "Weiter: Eingang zeichnen",
+      "annulla": "Abbrechen",
+      "passo1": "Schritt 1 von 2 – Eingang",
+      "passo2": "Schritt 2 von 2 – Ankunft",
+      "ingressoFatto": "Eingang festgelegt auf Szene",
+      "nomeArrivo": "Name der Ankunft",
+      "nomeArrivoEsempio": "z. B. Magischer Kreis in der Gruft",
+      "zona": "Zone"
+    },
+    "Elimina": {
+      "titolo": "Verbindung löschen",
+      "domanda": "Die Verbindung {nome} mit ihren Bereichen löschen?"
+    },
+    "Comune": {
+      "si": "Ja",
+      "no": "Nein"
+    },
+    "Comportamento": {
+      "FIELDS": {
+        "destinazione": {
+          "label": "Ankunftsbereich",
+          "hint": "Die Region, in der die Token erscheinen (hierher ziehen oder ihre UUID einfügen). Sie kann auf einer anderen Szene liegen."
+        },
+        "modalita": {
+          "label": "Modus",
+          "hint": "Frei: Token reisen sofort. Offen/geschlossen: nur solange die SL es offen hält. Auf Befehl: nur wenn die SL „Jetzt teleportieren“ drückt."
+        },
+        "aperto": {
+          "label": "Offen",
+          "hint": "Wird nur im Modus offen/geschlossen verwendet."
+        },
+        "passano": {
+          "label": "Wer passiert",
+          "hint": "Nur Spieler-Token, nur von der SL geführte Monster und NSC, oder alle."
+        }
+      }
+    },
+    "Zone": {
+      "titolo": "Zonen",
+      "tutti": "Alle",
+      "nuova": "Neue Zone",
+      "nome": "Name der Zone",
+      "salva": "Speichern",
+      "modifica": "Zone bearbeiten",
+      "colore": "Farbe",
+      "elimina": "Zone löschen",
+      "eliminaDomanda": "Zone „{nome}“ löschen? Ihre Portale und Unterzonen wandern in die übergeordnete Zone (oder bleiben ohne Zone).",
+      "nessuna": "— keine Zone —",
+      "trascina": "Klicken zum Filtern (inklusive Unterzonen). Ziehe ein Portal hierher, um es dieser Zone zuzuordnen, oder eine andere Zone, um sie zu ihrer Unterzone zu machen.",
+      "sottozona": "Neue Unterzone (in dieser Zone)",
+      "dentro": "In der Zone",
+      "inCima": "— oberste Ebene (keine übergeordnete Zone) —",
+      "bloccate": "Verschieben der Zonen gesperrt: Klicke, um es freizugeben. Portale kannst du immer in Zonen ziehen.",
+      "sbloccate": "Verschieben der Zonen freigegeben: Ziehe eine Zone auf eine andere, um sie zu verschieben. Klicke, um es zu sperren.",
+      "trascinaTutti": "Zeigt alle Portale. Ziehe ein Portal hierher, um seine Zone zu entfernen, oder eine Zone, um sie wieder auf die oberste Ebene zu bringen."
+    }
+  }
+}
