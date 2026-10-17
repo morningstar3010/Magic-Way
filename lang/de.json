@@ -43,11 +43,11 @@
       },
       "segueMaster": {
         "nome": "SL folgt der Gruppe",
-        "hint": "Nach einer befohlenen Teleportation in eine andere Szene wechselt auch deine Ansicht zur Ankunftsszene. Persönliche Einstellung."
+        "hint": "Nach einer befohlenen Teleportation in eine andere Szene wechselt auch deine Ansicht zur Ankunftsszene. Außerdem: Bringt ein Portal alle verbundenen Spieler in die neue Szene, wechselst auch du dorthin und sie wird zur aktiven Szene."
       },
       "lingua": {
         "nome": "Sprache von Magic Way (nur dieses Modul)",
-        "hint": "Ändert nur die Texte von Magic Way: Die Sprache von Foundry und die anderer Module bleiben unverändert. Nützlich, wenn Magic Way nicht von selbst die richtige Sprache verwendet. „Automatisch“ folgt der Sprache von Foundry. Beim Ändern wird die Seite neu geladen. Persönliche Einstellung.",
+        "hint": "Ändert nur die Texte von Magic Way: Die Sprache von Foundry und die anderer Module bleiben unverändert. Nützlich, wenn Magic Way nicht von selbst die richtige Sprache verwendet. „Automatisch“ folgt der Sprache von Foundry. Beim Ändern wird die Seite neu geladen.",
         "auto": "Automatisch (Sprache von Foundry)"
       }
     },

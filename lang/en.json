@@ -43,11 +43,11 @@
       },
       "segueMaster": {
         "nome": "GM follows the party",
-        "hint": "After a commanded teleport to another scene, your view moves to the arrival scene too. Personal setting."
+        "hint": "After a commanded teleport to another scene, your view moves to the arrival scene too. Also, when a portal brings all connected players to the new scene, you move there as well and it becomes the active scene."
       },
       "lingua": {
         "nome": "Magic Way language (this module only)",
-        "hint": "Changes only Magic Way's texts: Foundry's language and other modules stay as they are. Useful if Magic Way does not pick the right language by itself. \"Automatic\" follows Foundry's language. Changing it reloads the page. Personal setting.",
+        "hint": "Changes only Magic Way's texts: Foundry's language and other modules stay as they are. Useful if Magic Way does not pick the right language by itself. \"Automatic\" follows Foundry's language. Changing it reloads the page.",
         "auto": "Automatic (Foundry's language)"
       }
     },

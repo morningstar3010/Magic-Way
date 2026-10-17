@@ -43,11 +43,11 @@
       },
       "segueMaster": {
         "nome": "Il master segue il gruppo",
-        "hint": "Dopo un teletrasporto su comando verso un'altra scena, anche la tua vista passa alla scena d'arrivo. Impostazione personale."
+        "hint": "Dopo un teletrasporto su comando verso un'altra scena, anche la tua vista passa alla scena d'arrivo. Inoltre, quando un portale porta tutti i giocatori collegati sulla nuova scena, ci passi anche tu e quella diventa la scena attiva."
       },
       "lingua": {
         "nome": "Lingua di Magic Way (solo questo modulo)",
-        "hint": "Cambia solo i testi di Magic Way: la lingua di Foundry e quella degli altri moduli restano come sono. Serve se Magic Way non usa da solo la lingua giusta. «Automatica» segue la lingua di Foundry. Al cambio la pagina si ricarica. Impostazione personale.",
+        "hint": "Cambia solo i testi di Magic Way: la lingua di Foundry e quella degli altri moduli restano come sono. Serve se Magic Way non usa da solo la lingua giusta. «Automatica» segue la lingua di Foundry. Al cambio la pagina si ricarica.",
         "auto": "Automatica (lingua di Foundry)"
       }
     },

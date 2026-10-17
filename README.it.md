@@ -13,19 +13,10 @@
 <p align="center">
   <a href="README.md" title="English"><img src="https://flagcdn.com/32x24/gb.png" alt="English" width="32" height="24"></a>
   <a href="README.it.md" title="Italiano"><img src="https://flagcdn.com/32x24/it.png" alt="Italiano" width="32" height="24"></a>
-  <a href="README.de.md" title="Deutsch"><img src="https://flagcdn.com/32x24/de.png" alt="Deutsch" width="32" height="24"></a>
-  <a href="README.es.md" title="Español"><img src="https://flagcdn.com/32x24/es.png" alt="Español" width="32" height="24"></a>
-  <a href="README.fr.md" title="Français"><img src="https://flagcdn.com/32x24/fr.png" alt="Français" width="32" height="24"></a>
-  <a href="README.pl.md" title="Polski"><img src="https://flagcdn.com/32x24/pl.png" alt="Polski" width="32" height="24"></a>
-  <a href="README.pt-BR.md" title="Português (Brasil)"><img src="https://flagcdn.com/32x24/br.png" alt="Português (Brasil)" width="32" height="24"></a>
-  <a href="README.ru.md" title="Русский"><img src="https://flagcdn.com/32x24/ru.png" alt="Русский" width="32" height="24"></a>
-  <a href="README.cn.md" title="中文（简体）"><img src="https://flagcdn.com/32x24/cn.png" alt="中文（简体）" width="32" height="24"></a>
-  <a href="README.ja.md" title="日本語"><img src="https://flagcdn.com/32x24/jp.png" alt="日本語" width="32" height="24"></a>
-  <a href="README.ko.md" title="한국어"><img src="https://flagcdn.com/32x24/kr.png" alt="한국어" width="32" height="24"></a>
 </p>
 
 <p align="center">
-  🌐 <a href="README.md">English</a> · <b>Italiano</b> · <a href="README.de.md">Deutsch</a> · <a href="README.es.md">Español</a> · <a href="README.fr.md">Français</a> · <a href="README.pl.md">Polski</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.cn.md">中文（简体）</a> · <a href="README.ja.md">日本語</a> · <a href="README.ko.md">한국어</a>
+  🌐 <a href="README.md">English</a> · <b>Italiano</b>
 </p>
 
 ---
@@ -271,9 +262,9 @@ Apri **Configura impostazioni → Magic Way**.
 | **Colore del lampo magico** | Il colore dell'anello e del bagliore. |
 | **Dissolvenza al cambio di scena** | I giocatori portati su un'altra scena hanno una transizione in dissolvenza. |
 | **Suono del teletrasporto** | Un file audio suonato per tutti a ogni viaggio. Lascialo vuoto per non avere suoni. |
-| **Il master segue il gruppo** | Dopo un viaggio su comando verso un'altra scena, anche la tua vista si sposta lì. Impostazione personale. |
+| **Il master segue il gruppo** | Dopo un viaggio su comando verso un'altra scena, anche la tua vista si sposta lì. Inoltre, quando un portale porta **tutti i giocatori collegati** sulla nuova scena, ci passi anche tu e quella diventa la **scena attiva** (comodo se i giocatori guardano uno schermo comune). |
 
-Lingue disponibili: English, Italiano, Deutsch, Español, Français, Polski, Português (Brasil), Русский, 中文（简体）, 日本語, 한국어.
+Lingue disponibili: English, Italiano, Deutsch, Español.
 
 <a name="faq"></a>
 ## 11. Domande e problemi

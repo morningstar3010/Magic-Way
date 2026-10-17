@@ -13,19 +13,10 @@
 <p align="center">
   <a href="README.md" title="English"><img src="https://flagcdn.com/32x24/gb.png" alt="English" width="32" height="24"></a>
   <a href="README.it.md" title="Italiano"><img src="https://flagcdn.com/32x24/it.png" alt="Italiano" width="32" height="24"></a>
-  <a href="README.de.md" title="Deutsch"><img src="https://flagcdn.com/32x24/de.png" alt="Deutsch" width="32" height="24"></a>
-  <a href="README.es.md" title="Español"><img src="https://flagcdn.com/32x24/es.png" alt="Español" width="32" height="24"></a>
-  <a href="README.fr.md" title="Français"><img src="https://flagcdn.com/32x24/fr.png" alt="Français" width="32" height="24"></a>
-  <a href="README.pl.md" title="Polski"><img src="https://flagcdn.com/32x24/pl.png" alt="Polski" width="32" height="24"></a>
-  <a href="README.pt-BR.md" title="Português (Brasil)"><img src="https://flagcdn.com/32x24/br.png" alt="Português (Brasil)" width="32" height="24"></a>
-  <a href="README.ru.md" title="Русский"><img src="https://flagcdn.com/32x24/ru.png" alt="Русский" width="32" height="24"></a>
-  <a href="README.cn.md" title="中文（简体）"><img src="https://flagcdn.com/32x24/cn.png" alt="中文（简体）" width="32" height="24"></a>
-  <a href="README.ja.md" title="日本語"><img src="https://flagcdn.com/32x24/jp.png" alt="日本語" width="32" height="24"></a>
-  <a href="README.ko.md" title="한국어"><img src="https://flagcdn.com/32x24/kr.png" alt="한국어" width="32" height="24"></a>
 </p>
 
 <p align="center">
-  🌐 <b>English</b> · <a href="README.it.md">Italiano</a> · <a href="README.de.md">Deutsch</a> · <a href="README.es.md">Español</a> · <a href="README.fr.md">Français</a> · <a href="README.pl.md">Polski</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.cn.md">中文（简体）</a> · <a href="README.ja.md">日本語</a> · <a href="README.ko.md">한국어</a>
+  🌐 <b>English</b> · <a href="README.it.md">Italiano</a>
 </p>
 
 ---
@@ -271,9 +262,9 @@ Open **Configure Settings → Magic Way**.
 | **Magic flash colour** | The colour of the ring and glow. |
 | **Fade on scene change** | Players moved to another scene get a fade transition. |
 | **Teleport sound** | An audio file played for everyone on each trip. Leave it empty for no sound. |
-| **GM follows the party** | After a commanded trip to another scene, your view moves there too. Personal setting. |
+| **GM follows the party** | After a commanded trip to another scene, your view moves there too. Also, when a portal brings **all the connected players** to the new scene, you move there as well and it becomes the **active scene** (handy if your players watch a shared screen). |
 
-Available languages: English, Italiano, Deutsch, Español, Français, Polski, Português (Brasil), Русский, 中文（简体）, 日本語, 한국어.
+Available languages: English, Italiano, Deutsch, Español.
 
 <a name="faq"></a>
 ## 11. Questions and problems

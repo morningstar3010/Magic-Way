@@ -43,11 +43,11 @@
       },
       "segueMaster": {
         "nome": "El máster sigue al grupo",
-        "hint": "Tras un teletransporte a tu orden hacia otra escena, tu vista también pasa a la escena de llegada. Ajuste personal."
+        "hint": "Tras un teletransporte a tu orden hacia otra escena, tu vista también pasa a la escena de llegada. Además, cuando un portal lleva a todos los jugadores conectados a la nueva escena, tú también pasas a ella y se convierte en la escena activa."
       },
       "lingua": {
         "nome": "Idioma de Magic Way (solo este módulo)",
-        "hint": "Cambia solo los textos de Magic Way: el idioma de Foundry y el de los demás módulos no cambian. Útil si Magic Way no usa por sí solo el idioma correcto. «Automático» sigue el idioma de Foundry. Al cambiarlo la página se recarga. Ajuste personal.",
+        "hint": "Cambia solo los textos de Magic Way: el idioma de Foundry y el de los demás módulos no cambian. Útil si Magic Way no usa por sí solo el idioma correcto. «Automático» sigue el idioma de Foundry. Al cambiarlo la página se recarga.",
         "auto": "Automático (idioma de Foundry)"
       }
     },

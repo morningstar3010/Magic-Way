@@ -232,6 +232,8 @@ async function portaLaVista(dest, vecchi, nuovi, { stessaScena, livello, daComan
   if (livello && arrivo.levels?.size > 1) opzioniVista.level = livello;
   if (game.settings.get(MOD, "dissolvenza")) opzioniVista.transition = { type: "fade", duration: 600 };
 
+  const idTokens = nuovi.map(tk => tk.id);
+
   // Giocatori proprietari dei token: vengono portati sulla scena d'arrivo.
   const utenti = new Map();
   vecchi.forEach(tk => proprietari(tk).forEach(u => utenti.set(u.id, u)));
@@ -241,14 +243,21 @@ async function portaLaVista(dest, vecchi, nuovi, { stessaScena, livello, daComan
     else lista.forEach(u => game.socket.emit("pullToScene", arrivo.id, u.id));
   }
   // ...e la loro vista viene centrata sul proprio token appena arrivato.
-  if (utenti.size) {
-    inviaAiClient("centra", { scena: arrivo.id, tokens: nuovi.map(tk => tk.id) }, [...utenti.keys()]);
-  }
+  if (utenti.size) inviaAiClient("centra", { scena: arrivo.id, tokens: idTokens }, [...utenti.keys()]);
 
-  // Il master segue il gruppo se ha lanciato lui il teletrasporto (impostazione personale).
-  if (daComando && !stessaScena && game.settings.get(MOD, "segueMaster") && canvas.scene?.id !== arrivo.id) {
+  if (stessaScena || !game.settings.get(MOD, "segueMaster")) return;
+
+  // «Il master segue il gruppo»:
+  //  - se ora TUTTI i giocatori collegati sono sulla scena d'arrivo (quelli appena portati più quelli che c'erano già),
+  //    la scena d'arrivo diventa la scena attiva e anche il master ci passa. Non conta chi ha mosso il token (giocatore
+  //    o master) e vale anche quando non c'è nessun giocatore collegato (per esempio mentre il master prepara o prova);
+  //  - altrimenti il master ci passa solo dopo un teletrasporto su comando (come prima).
+  const giocatori = game.users.filter(u => u.active && !u.isGM);
+  const tuttiLi = giocatori.every(u => utenti.has(u.id) || u.viewedScene === arrivo.id);
+  if (tuttiLi && !arrivo.active) await arrivo.activate();
+  if ((tuttiLi || daComando) && canvas.scene?.id !== arrivo.id) {
     await arrivo.view(opzioniVista);
-    centraSuToken({ scena: arrivo.id, tokens: nuovi.map(tk => tk.id), controlla: false });
+    centraSuToken({ scena: arrivo.id, tokens: idTokens, controlla: false });
   }
 }
 

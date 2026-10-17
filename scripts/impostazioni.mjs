@@ -54,7 +54,9 @@ export function registraImpostazioni() {
     scope: "world", config: true, type: String, default: "", filePicker: "audio"
   });
 
-  // Solo per il master che la attiva: dopo un teletrasporto su comando la sua vista segue il gruppo.
+  // «Il master segue il gruppo» (impostazione di ogni master): dopo un teletrasporto su comando la sua vista passa
+  // alla scena d'arrivo; e quando un portale porta TUTTI i giocatori collegati sulla nuova scena, anche il master
+  // ci passa e quella scena diventa la scena attiva.
   game.settings.register(MOD, "segueMaster", {
     name: "MAGICWAY.Impostazioni.segueMaster.nome",
     hint: "MAGICWAY.Impostazioni.segueMaster.hint",
