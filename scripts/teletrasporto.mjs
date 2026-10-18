@@ -150,7 +150,14 @@ export async function teletrasporta(behavior, tokens, { daComando = false } = {}
 
   let risultato;
   try {
-    if (stessaScena) {
+    if (stessaScena && (game.release?.generation ?? 14) < 13) {
+      // 2a-bis) Foundry 12: non c'è l'API dei movimenti, si sposta il token direttamente, senza animazione.
+      // Il token viene segnato come appena arrivato: l'area d'arrivo (se ha il ritorno) non lo rimanda indietro.
+      tokens.forEach(tk => segnaArrivo(tk.id));
+      const diretti = tokens.map((tk, i) => ({ _id: tk.id, ...posizioni[i], elevation: quotaArrivo(dest, livello, tk) }));
+      await arrivo.updateEmbeddedDocuments("Token", diretti, { animate: false, teleport: true });
+      risultato = tokens;
+    } else if (stessaScena) {
       // 2a) Salto istantaneo dentro la stessa scena.
       const aggiornamenti = [], movimento = {};
       tokens.forEach((tk, i) => {

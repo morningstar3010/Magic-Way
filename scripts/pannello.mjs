@@ -544,7 +544,7 @@ export class PannelloMagicWay extends HandlebarsApplicationMixin(ApplicationV2) 
     const voci = alberoZone().filter(z => !id || puoAndareDentro(id, z.id));
     const opzioniPadre = [`<option value="">${esc(t("MAGICWAY.Zone.inCima"))}</option>`,
       ...voci.map(z => `<option value="${z.id}" ${z.id === padre ? "selected" : ""}>${"&nbsp;&nbsp;&nbsp;".repeat(z.profondita)}${z.profondita ? "↳ " : ""}${esc(z.nome)}</option>`)].join("");
-    const r = await DialogV2.input({
+    const r = await DialogV2.prompt({
       window: { title: titolo },
       classes: ["magic-way-dialogo"],
       content: `
@@ -558,7 +558,14 @@ export class PannelloMagicWay extends HandlebarsApplicationMixin(ApplicationV2) 
             ${COLORI_PROPOSTI.map(x => `<button type="button" class="mw-campione" style="background:${x}" data-colore="${x}" aria-label="${x}"
               onclick="this.closest('form').querySelector('[name=colore]').value='${x}'"></button>`).join("")}
           </div></div>`,
-      ok: { label: "MAGICWAY.Zone.salva", icon: "fa-solid fa-check" },
+      // I valori si leggono dal modulo della finestra (DialogV2.input non esiste su Foundry 12).
+      ok: {
+        label: "MAGICWAY.Zone.salva", icon: "fa-solid fa-check",
+        callback: (event, button) => {
+          const campi = button.form?.elements ?? button.closest("form")?.elements;
+          return campi ? { nome: campi.nome.value, padre: campi.padre.value, colore: campi.colore.value } : null;
+        }
+      },
       // Clic su un colore pronto: lo mette nel selettore (riserva se il browser ignora onclick).
       render: (event, dialogo) => {
         const radice = dialogo?.element ?? event?.target?.element;
@@ -649,6 +656,23 @@ export function registraAggiornamentoPannello() {
 /** Pulsante nella barra a sinistra (gruppi Token e Regioni), solo per il master. */
 export function aggiungiPulsanti(controls) {
   if (!game.user.isGM) return;
+  // Foundry 12: i gruppi sono un elenco e gli strumenti pure.
+  if (Array.isArray(controls)) {
+    for (const nome of ["token", "regions"]) {
+      const gruppo = controls.find(c => c.name === nome);
+      if (!gruppo?.tools || gruppo.tools.some(s => s.name === "magicWay")) continue;
+      gruppo.tools.push({
+        name: "magicWay",
+        title: "MAGICWAY.Pannello.pulsante",
+        icon: "fa-solid fa-dungeon",
+        button: true,
+        visible: true,
+        onClick: () => apriPannello()
+      });
+    }
+    return;
+  }
+  // Foundry 13 e 14: i gruppi e gli strumenti sono oggetti.
   for (const nome of ["tokens", "regions"]) {
     const gruppo = controls[nome];
     if (!gruppo?.tools) continue;

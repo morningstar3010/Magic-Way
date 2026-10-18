@@ -2,7 +2,7 @@
   "id": "magic-way",
   "title": "Magic Way - Easy Teleport",
   "description": "<p>Portali di teletrasporto tra mappe e dentro la stessa mappa, con aree di aggancio grandi quanto vuoi e invisibili ai giocatori, un effetto magico di dissolvenza e apparizione e un pannello di controllo per il master. Tre modalità: <strong>libero</strong> (chi entra nell'area viene teletrasportato subito), <strong>aperto/chiuso</strong> (funziona solo quando il master lo apre) e <strong>su comando</strong> (il master teletrasporta con un clic tutti i presenti nell'area). Per ogni portale il master sceglie chi passa: solo i giocatori, solo mostri e PNG, oppure tutti. English, Italiano, Deutsch, Español.</p>",
-  "version": "1.8.4",
+  "version": "1.8.5",
   "authors": [
     {
       "name": "MorningStar"
@@ -10,9 +10,9 @@
   ],
   "url": "https://github.com/morningstar3010/magic-way/",
   "manifest": "https://github.com/morningstar3010/magic-way/releases/latest/download/module.json",
-  "download": "https://github.com/morningstar3010/magic-way/releases/download/1.8.4/magic-way.zip",
+  "download": "https://github.com/morningstar3010/magic-way/releases/download/1.8.5/magic-way.zip",
   "compatibility": {
-    "minimum": "13",
+    "minimum": "12",
     "verified": "14"
   },
   "documentTypes": {
