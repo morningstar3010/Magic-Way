@@ -190,3 +190,6 @@
   border: 2px solid rgba(255, 255, 255, 0.6); cursor: pointer;
 }
 .magic-way-dialogo .mw-campione:hover { transform: scale(1.15); border-color: #fff; }
+
+/* Mentre si disegna un'area il pannello sparisce (cattura.mjs) e torna quando l'area è disegnata */
+.application.mw-nascosto-cattura { display: none !important; }

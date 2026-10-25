@@ -7,6 +7,8 @@
  * Il clic non seleziona token né altro. Esc o clic destro annullano.
  * La cattura resta attiva anche se nel frattempo il master cambia scena: così può disegnare l'ingresso
  * su una mappa e l'arrivo su un'altra.
+ * Mentre si disegna, il pannello di Magic Way (e le sue finestre) spariscono per lasciare libera la mappa;
+ * resta solo la fascia in alto con l'istruzione. Ricompaiono appena l'area è disegnata (o si annulla).
  */
 let attiva = null;
 
@@ -25,6 +27,8 @@ export function disegnaArea(messaggio, colore = "#8e44ad") {
     fascia.innerHTML = `<i class="fa-solid fa-vector-square"></i><span class="mw-msg"></span><strong class="mw-misure"></strong><em>${game.i18n.localize("MAGICWAY.Cattura.esc")}</em>`;
     fascia.querySelector(".mw-msg").textContent = messaggio;
     document.body.append(fascia);
+    const nascoste = [...document.querySelectorAll("#magic-way-pannello, .application.magic-way-dialogo")];
+    for (const f of nascoste) f.classList.add("mw-nascosto-cattura");
     const misure = fascia.querySelector(".mw-misure");
 
     let inizio = null;      // punto dove è stato premuto il tasto
@@ -80,6 +84,7 @@ export function disegnaArea(messaggio, colore = "#8e44ad") {
       document.removeEventListener("keydown", suTasto, true);
       if (anteprima) { anteprima.parent?.removeChild(anteprima); anteprima.destroy(); }
       fascia.remove();
+      for (const f of nascoste) f.classList.remove("mw-nascosto-cattura");
       attiva = null;
       resolve(valore);
     };
