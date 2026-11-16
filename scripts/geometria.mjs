@@ -1,9 +1,12 @@
 /**
  * MAGIC WAY – geometria delle regioni e scelta delle caselle d'arrivo.
  *
- * Le caselle di aggancio sono Regioni di Foundry. Qui si calcola, leggendo direttamente le forme salvate
- * nella regione (rettangoli, ellissi, cerchi, poligoni, con i "buchi"), se un punto sta dentro, dove sta
- * il centro e quali caselle libere usare per far arrivare uno o più token senza sovrapporli.
+ * Le caselle di aggancio sono Regioni di Foundry. Qui si calcola se un punto sta dentro, dove sta il centro e
+ * quali caselle libere usare per far arrivare uno o più token senza sovrapporli.
+ * Dalla 1.8.7 si usa prima la geometria che Foundry calcola per la regione (polygonTree, da Foundry 13): vale
+ * per tutte le forme, comprese quelle aggiunte nelle versioni nuove (per esempio le «caselle della griglia» di
+ * Foundry 14.370). Se non c'è (Foundry 12) o dà errore, si leggono direttamente le forme salvate nella regione
+ * (rettangoli, ellissi, cerchi, poligoni, con i "buchi").
  * Funziona anche per scene che il master non sta guardando (non usa il canvas).
  */
 
@@ -85,8 +88,22 @@ function forme(region) {
   return (region.shapes ?? []).map(s => (typeof s.toObject === "function" ? s.toObject() : s));
 }
 
+/** Geometria calcolata da Foundry (Foundry 13 e successivi), oppure null. */
+function alberoFoundry(region) {
+  try {
+    const albero = region?.polygonTree;
+    return (albero && typeof albero.testPoint === "function" && albero.bounds) ? albero : null;
+  } catch (err) {
+    return null;
+  }
+}
+
 /** Vero se il punto {x,y} sta dentro la regione (dentro almeno una forma piena e fuori da tutti i buchi). */
 export function contiene(region, p) {
+  const albero = alberoFoundry(region);
+  if (albero) {
+    try { return !!albero.testPoint({ x: p.x, y: p.y }); } catch (err) { /* si usa il calcolo proprio */ }
+  }
   const f = forme(region);
   const piene = f.filter(s => !s.hole), buchi = f.filter(s => s.hole);
   return piene.some(s => dentroForma(s, p)) && !buchi.some(s => dentroForma(s, p));
@@ -94,6 +111,11 @@ export function contiene(region, p) {
 
 /** Rettangolo di ingombro della regione. */
 export function limiti(region) {
+  const albero = alberoFoundry(region);
+  const r = albero?.bounds;
+  if (r && Number.isFinite(r.x) && Number.isFinite(r.width) && (r.width > 0 || r.height > 0)) {
+    return { x0: r.x, y0: r.y, x1: r.x + r.width, y1: r.y + r.height };
+  }
   const b = forme(region).filter(s => !s.hole).map(limitiForma).filter(Boolean);
   if (!b.length) return { x0: 0, y0: 0, x1: 0, y1: 0 };
   return { x0: Math.min(...b.map(r => r.x0)), y0: Math.min(...b.map(r => r.y0)),
